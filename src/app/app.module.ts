@@ -9,13 +9,17 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import {SelectFieldRequiredValidatorDirective} from './shared/requiredFieldValidator.directive';
 import {EqualCompareValidatorDirective} from './shared/equalCompareValidator.directive';
+import {EmployeeService} from './employees/employee.service';
+import { DisplayEmployeeComponent } from './employees/display-employee.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     ListEmployeesComponent,
     CreateEmployeesComponent,
     SelectFieldRequiredValidatorDirective,
-    EqualCompareValidatorDirective
+    EqualCompareValidatorDirective,
+    DisplayEmployeeComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,7 @@ import {EqualCompareValidatorDirective} from './shared/equalCompareValidator.dir
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,4 +1,4 @@
-<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employee)">
+<form #employeeForm="ngForm" (ngSubmit)="saveEmployee()">
   <div class="panel panel-primary">
     <div class="panel-heading">
       <div class="panel-title">
@@ -114,32 +114,6 @@
         <img *ngIf="previewPhoto" [src]="employee.photoPath" alt="Image Not Available" class="imageClass form-control">
       </div>
 
-      <div ngModelGroup="passwordGroup"
-           [class.has-error]="confirmpassword.invalid && !confirmpassword.errors?.required  && confirmpassword.touched">
-
-        <div class="form-group" [class.has-error]="password.invalid && password.touched">
-          <label for="password" class="control-label">Password</label>
-          <input type="text" name="password" [(ngModel)]="employee.password" id="password" class="form-control"
-                 #password="ngModel" (change)="confirmpassword.control.updateValueAndValidity()" required>
-          <div *ngIf="password.invalid && password.touched"
-               class="text-danger">This Field is required
-          </div>
-        </div>
-
-        <div class="form-group"
-             [class.has-error]="confirmpassword.invalid && confirmpassword.touched">
-          <label for="confirmpassword" class="control-label">Confirm Password</label>
-          <input type="text" required [appConfirmEqualValidator]="password.value" name="confirmpassword"
-                 [(ngModel)]="employee.confirmPassword" id="confirmpassword" class="form-control"
-                 #confirmpassword="ngModel">
-          <div *ngIf="confirmpassword.errors?.required && confirmpassword.touched"
-               class="text-danger">This Field is required
-          </div>
-          <div *ngIf="confirmpassword.errors?.mismatch && !confirmpassword.errors?.required && confirmpassword.touched"
-               class="text-danger">Password and Confirm Password do not match
-          </div>
-        </div>
-      </div>
 
 
     </div>

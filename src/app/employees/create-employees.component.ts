@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {Department} from '../models/department.model';
 import {BsDatepickerConfig} from 'ngx-bootstrap/datepicker';
 import {Employee} from '../models/employee.model';
+import {EmployeeService} from './employee.service';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-create-employees',
@@ -22,8 +25,6 @@ export class CreateEmployeesComponent implements OnInit {
     department: '-1',
     isActive: false,
     photoPath: null,
-    password: null,
-    confirmPassword: null
   };
   previewPhoto = false;
   departments: Department[] = [
@@ -33,7 +34,7 @@ export class CreateEmployeesComponent implements OnInit {
     {id: 4, name: 'Payroll'}
   ];
 
-  constructor() {
+  constructor(private _employeeService: EmployeeService, private _router: Router) {
     this.datePickerConfig = Object.assign({},
       {
         containerClass: 'theme-dark-blue',
@@ -44,8 +45,9 @@ export class CreateEmployeesComponent implements OnInit {
   ngOnInit() {
   }
 
-  saveEmployee(newEmployee: Employee): void {
-    console.log(newEmployee);
+  saveEmployee(): void {
+    this._employeeService.save(this.employee);
+    this._router.navigate(['list']);
   }
 
   togglePreview() {
