@@ -7,12 +7,15 @@ import {ListEmployeesComponent} from './employees/list-employees.component';
 import {CreateEmployeesComponent} from './employees/create-employees.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
-
+import {SelectFieldRequiredValidatorDirective} from './shared/requiredFieldValidator.directive';
+import {EqualCompareValidatorDirective} from './shared/equalCompareValidator.directive';
 @NgModule({
   declarations: [
     AppComponent,
     ListEmployeesComponent,
-    CreateEmployeesComponent
+    CreateEmployeesComponent,
+    SelectFieldRequiredValidatorDirective,
+    EqualCompareValidatorDirective
   ],
   imports: [
     BrowserModule,

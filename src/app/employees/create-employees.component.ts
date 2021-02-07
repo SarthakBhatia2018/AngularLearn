@@ -19,9 +19,11 @@ export class CreateEmployeesComponent implements OnInit {
     phoneNumber: null,
     contactPreference: null,
     dateOfBirth: null,
-    department: null,
-    isActive: null,
+    department: '-1',
+    isActive: false,
     photoPath: null,
+    password: null,
+    confirmPassword: null
   };
   previewPhoto = false;
   departments: Department[] = [
