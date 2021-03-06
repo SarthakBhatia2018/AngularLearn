@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Department} from '../models/department.model';
 import {BsDatepickerConfig} from 'ngx-bootstrap/datepicker';
 import {Employee} from '../models/employee.model';
 import {EmployeeService} from './employee.service';
 import {Router} from '@angular/router';
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -12,7 +13,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./create-employees.component.css']
 })
 export class CreateEmployeesComponent implements OnInit {
-
+  @ViewChild('employeeForm') public employeeForm: NgForm;
   datePickerConfig: Partial<BsDatepickerConfig>;
   employee: Employee = {
     id: null,
