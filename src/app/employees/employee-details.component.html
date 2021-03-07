@@ -1,6 +1,8 @@
 <div>
   <app-display-employee [employee]="employee"></app-display-employee>
-  <button class="btn btn-primary" [routerLink]="['/list',{'id':employee.id}]">Go back to list page</button>
+  <button class="btn btn-primary" [routerLink]="['/list',{'id':employee.id}]" queryParamsHandling="preserve">Go back to
+    list page
+  </button>
   <button class="btn btn-primary pull-right" (click)="showNext()">View next Employee</button>
 </div>
 

@@ -1,4 +1,16 @@
-<div *ngFor="let employee of employees">
+<div class="row">
+  <div class="form-group col-md-4">
+    <input class="form-control" type="text" placeholder="Search By Name" [(ngModel)]="searchTerm">
+  </div>
+</div>
+
+<div class="form-group">
+  <button class="btn btn-primary" (click)="changeFirstEmployee()">
+    Click
+  </button>
+</div>
+
+<div *ngFor="let employee of filterEmployees">
   <div (click)="onClick(employee.id)" class="pointer">
     <app-display-employee [employee]="employee"></app-display-employee>
   </div>

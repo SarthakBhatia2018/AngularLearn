@@ -1,4 +1,6 @@
 import {Employee} from '../models/employee.model';
+import {Observable, of} from 'rxjs';
+import {delay} from 'rxjs/operators';
 
 // @Injectable()
 export class EmployeeService {
@@ -38,8 +40,8 @@ export class EmployeeService {
       photoPath: 'assets/images/john.png'
     }];
 
-  getEmployees(): Employee[] {
-    return this.employeeList;
+  getEmployees(): Observable<Employee[]> {
+    return of(this.employeeList).pipe(delay(2000));
   }
 
   getEmployee(id: Number): Employee {
