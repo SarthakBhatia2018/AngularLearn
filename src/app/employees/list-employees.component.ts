@@ -24,6 +24,14 @@ export class ListEmployeesComponent implements OnInit {
 
   constructor(private _router: Router, private _route: ActivatedRoute) {
     this.employees = this._route.snapshot.data['employeeList'];
+    this._route.queryParamMap.subscribe((queryMap) => {
+      const searchTermParam: string = queryMap.get('searchTerm');
+      if (searchTermParam) {
+        this.searchTerm = searchTermParam;
+      } else {
+        this.filterEmployees = this.getFilteredEmployees();
+      }
+    });
   }
 
   getFilteredEmployees(): Employee[] {
@@ -36,29 +44,6 @@ export class ListEmployeesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._route.queryParamMap.subscribe((queryMap) => {
-      const searchTermParam: string = queryMap.get('searchTerm');
-      if (searchTermParam) {
-        this.searchTerm = searchTermParam;
-      } else {
-        this.filterEmployees = this.getFilteredEmployees();
-      }
-    });
-    // this._employeeService.getEmployees().subscribe((employeeData) => {
-    //   this.employees = employeeData;
-    //   this._route.queryParamMap.subscribe((queryMap) => {
-    //     const searchTermParam: string = queryMap.get('searchTerm');
-    //     if (searchTermParam) {
-    //       this.searchTerm = searchTermParam;
-    //     } else {
-    //       this.filterEmployees = this.getFilteredEmployees();
-    //     }
-    //   });
-    // });
-    // const searchTermParam: string = this._route.snapshot.queryParamMap.get('searchTerm');
-    // if (searchTermParam) {
-    //   this.searchTerm = searchTermParam;
-    // }
   }
 
   onClick(empId: number): void {
