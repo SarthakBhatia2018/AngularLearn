@@ -48,7 +48,7 @@ export class ListEmployeesComponent implements OnInit {
 
   onClick(empId: number): void {
     this._router.navigate(['employee', empId], {
-      queryParams: {'searchTerm': this.searchTerm, 'testParam': 'testvalue'}
+      queryParams: {'searchTerm': this.searchTerm}
     });
   }
 
