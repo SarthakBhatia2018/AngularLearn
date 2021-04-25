@@ -10,7 +10,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path: 'list', component: ListEmployeesComponent, resolve: {employeeList: EmployeeListResolverService}},
-  {path: 'create', component: CreateEmployeesComponent, canDeactivate: [CreateEmployeeCanDeactivateGuardService]},
+  {path: 'edit/:id', component: CreateEmployeesComponent, canDeactivate: [CreateEmployeeCanDeactivateGuardService]},
   {path: 'employee/:id', component: EmployeeDetailsComponent, canActivate: [EmployeeDetailsActivateGuardService]},
   {path: '', redirectTo: '/list', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent, pathMatch: 'full'},
