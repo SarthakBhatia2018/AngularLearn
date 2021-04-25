@@ -2,7 +2,7 @@
   <div class="panel panel-primary">
     <div class="panel-heading">
       <div class="panel-title">
-        Create Employee
+        {{panelString}}
       </div>
     </div>
     <div class="panel-body">
@@ -20,12 +20,12 @@
         <label class="control-label">Contact Preference</label>
         <div class="form-control">
           <label class="radio-inline">
-            <input required type="radio" value="phone" #preference="ngModel" name="contactPreference"
+            <input required type="radio" value="Phone" #preference="ngModel" name="contactPreference"
                    [(ngModel)]="employee.contactPreference">
             Phone
           </label>
           <label class="radio-inline">
-            <input required type="radio" value="email" #preference="ngModel" name="contactPreference"
+            <input required type="radio" value="Email" #preference="ngModel" name="contactPreference"
                    [(ngModel)]="employee.contactPreference">
             Email
           </label>
@@ -37,7 +37,7 @@
            [class.has-success]="email.valid  && email.touched">
         <label for="email" class="control-label">Email</label>
         <input type="text" name="email" [(ngModel)]="employee.email" id="email" class="form-control"
-               #email="ngModel" [required]="preference.value=='email'"
+               #email="ngModel" [required]="preference.value=='Email'"
                pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
         <div *ngIf="email.errors?.required"
              class="text-danger">This Field is required
@@ -51,7 +51,7 @@
            [class.has-success]="phone.valid && phone.touched">
         <label for="phone" class="control-label">Phone</label>
         <input type="text" name="phone" [(ngModel)]="employee.phoneNumber" id="phone" class="form-control"
-               #phone="ngModel" [required]="preference.value=='phone'">
+               #phone="ngModel" [required]="preference.value=='Phone'">
         <div *ngIf="phone.invalid" class="text-danger">This Field is required
         </div>
       </div>
@@ -61,11 +61,11 @@
         <label class="control-label">Gender</label>
         <div class="form-control">
           <label class="radio-inline">
-            <input required type="radio" #gender="ngModel" value="male" name="gender" [(ngModel)]="employee.gender">
+            <input required type="radio" #gender="ngModel" value="Male" name="gender" [(ngModel)]="employee.gender">
             Male
           </label>
           <label class="radio-inline">
-            <input required type="radio" #gender="ngModel" value="female" name="gender" [(ngModel)]="employee.gender">
+            <input required type="radio" #gender="ngModel" value="Female" name="gender" [(ngModel)]="employee.gender">
             Female
           </label>
         </div>
@@ -113,9 +113,6 @@
       <div class="form-group">
         <img *ngIf="previewPhoto" [src]="employee.photoPath" alt="Image Not Available" class="imageClass form-control">
       </div>
-
-
-
     </div>
 
     <div class="panel-footer">

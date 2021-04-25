@@ -49,6 +49,13 @@ export class EmployeeService {
   }
 
   save(employee: Employee): void {
-    this.employeeList.push(employee);
+    if (employee.id === null) {
+      const maxId = this.employeeList.length;
+      employee.id = maxId + 1;
+      this.employeeList.push(employee);
+    } else {
+      const employeeIndex = this.employeeList.findIndex(emp => employee.id === emp.id);
+      this.employeeList[employeeIndex] = employee;
+    }
   }
 }

@@ -7,7 +7,6 @@ import {Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AngularCrud';
   showLoader = false;
 
   constructor(private router: Router) {
