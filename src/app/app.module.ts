@@ -13,6 +13,9 @@ import {EmployeeService} from './employees/employee.service';
 import {DisplayEmployeeComponent} from './employees/display-employee.component';
 import {CreateEmployeeCanDeactivateGuardService} from './employees/create-employee-can-deactivate-guard.service';
 import {EmployeeDetailsComponent} from './employees/employee-details.component';
+import {EmployeeDetailsActivateGuardService} from './employees/employee-details-activate-guard.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 // import {FilterEmployeeByNamePipe} from './employees/filter-employee-by-name.pipe';
 
 @NgModule({
@@ -24,6 +27,7 @@ import {EmployeeDetailsComponent} from './employees/employee-details.component';
     EqualCompareValidatorDirective,
     DisplayEmployeeComponent,
     EmployeeDetailsComponent,
+    PageNotFoundComponent,
     // FilterEmployeeByNamePipe,
   ],
   imports: [
@@ -33,7 +37,7 @@ import {EmployeeDetailsComponent} from './employees/employee-details.component';
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [EmployeeService, CreateEmployeeCanDeactivateGuardService],
+  providers: [EmployeeService, CreateEmployeeCanDeactivateGuardService, EmployeeDetailsActivateGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
